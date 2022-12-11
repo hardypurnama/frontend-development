@@ -3,9 +3,7 @@ import { Container, Card, Button } from "react-bootstrap";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import { getUser,authHeader } from "../../Utils/Authentication";
-
-
+import { getUser, authHeader } from "../../Utils/Authentication";
 
 function DetailLoker() {
   const Navigate = useNavigate();
@@ -13,49 +11,45 @@ function DetailLoker() {
   const [DetailKan, setKandidat] = useState(null);
   const { id } = useParams();
 
-  
   useEffect(() => {
-    
     const getPostAPI = () => {
       axios
-        .get("https://backend-recruitment-production.up.railway.app/products/" + id)
+        .get("http://localhost:3000/products/" + id)
 
         .then((result) => {
           setDetail(result.data);
-          
         });
     };
     getPostAPI();
   }, []);
 
   const postDataToAPI = () => {
-    const curUser=getUser()
-    if(!curUser){
+    const curUser = getUser();
+    if (!curUser) {
       Navigate("/");
     } else {
-    const loker ={
-      id_lowongan: Detail.id,
-      id_user : curUser.id,
-      id_hr:0,
-      status:"APPLY",   
-    }
+      const loker = {
+        id_lowongan: Detail.id,
+        id_user: curUser.id,
+        id_hr: 0,
+        status: "APPLY",
+      };
 
-    axios.post("https://backend-recruitment-production.up.railway.app/kandidats", loker, { headers: authHeader() }).then(
-      (res) => {
-        Navigate("/Users/UserApply");
-      },
-      (err) => {
-        console.log("error: ".err);
-      }
-    );
+      axios
+        .post("http://localhost:3000/kandidats", loker, { headers: authHeader() })
+        .then(
+          (res) => {
+            Navigate("/Users/UserApply");
+          },
+          (err) => {
+            console.log("error: ".err);
+          }
+        );
     }
   };
- const handleApply =()=>{
-   postDataToAPI();
- 
-
-      
- }
+  const handleApply = () => {
+    postDataToAPI();
+  };
 
   return (
     <Container>
@@ -65,7 +59,9 @@ function DetailLoker() {
           <Card.Body>
             <Card.Title>{Detail.posisi}</Card.Title>
             <Card.Text>{Detail.description}</Card.Text>
-            <Button variant="primary" onClick={handleApply}>Apply</Button>
+            <Button variant="primary" onClick={handleApply}>
+              Apply
+            </Button>
           </Card.Body>
         </Card>
       )}

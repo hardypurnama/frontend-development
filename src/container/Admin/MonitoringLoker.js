@@ -9,7 +9,7 @@ const MonitoringLoker = (props) => {
 
   const handleRemove = async (data) => {
     await axios
-      .delete(`https://backend-recruitment-production.up.railway.app/products/${data}`, {
+      .delete(`http://localhost:3000/products/${data}`, {
         headers: authHeader(),
       })
       .then((res) => {
@@ -19,7 +19,7 @@ const MonitoringLoker = (props) => {
 
   const getPostAPI = () => {
     axios
-      .get("https://backend-recruitment-production.up.railway.app/products/")
+      .get("http://localhost:3000/products/")
 
       .then((result) => {
         setLoker(result.data);
@@ -62,14 +62,14 @@ const MonitoringLoker = (props) => {
                         <td colSpan={2}>
                           <div className="tombol">
                             <Button
-                            variant="danger"
+                              variant="danger"
                               className="remove"
                               onClick={() => handleRemove(Post.id)}
                             >
                               Delete
                             </Button>
                             <Button
-                            variant="success"
+                              variant="success"
                               className="update"
                               onClick={() => props.handleUpdateLoker(Post)}
                             >

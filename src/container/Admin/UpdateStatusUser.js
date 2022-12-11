@@ -15,7 +15,7 @@ const UpdateStatusUser = (props) => {
     console.log(props.idKandidat);
     const getPostAPI = () => {
       axios
-        .get("https://backend-recruitment-production.up.railway.app/kandidats/" + props.idKandidat, {
+        .get("http://localhost:3000/kandidats/" + props.idKandidat, {
           headers: authHeader(),
         })
         .then((result) => {
@@ -33,7 +33,7 @@ const UpdateStatusUser = (props) => {
 
   const putDataToAPI = (e) => {
     axios
-      .put(`https://backend-recruitment-production.up.railway.app/kandidats/` + props.idKandidat, kandidat, {
+      .put(`http://localhost:3000/kandidats/` + props.idKandidat, kandidat, {
         headers: authHeader(),
       })
       .then((res) => {});

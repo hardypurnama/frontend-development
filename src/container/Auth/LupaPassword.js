@@ -19,10 +19,10 @@ function LupaPassword() {
   const handleSubmit = (event) => {
     // prevents the submit button from refreshing the page
     event.preventDefault();
-    axios.post("https://backend-recruitment-production.up.railway.app/users/reset-password", Reset).then(
+    axios.post("http://localhost:3000/users/reset-password", Reset).then(
       (res) => {
         if (res.data.msg) {
-          alert(res.data.msg)
+          alert(res.data.msg);
           return navigate("/Login");
         }
       },
@@ -58,7 +58,7 @@ function LupaPassword() {
         </div>
       </div>
     </Container>
-  )
+  );
 }
 
 export default LupaPassword;
