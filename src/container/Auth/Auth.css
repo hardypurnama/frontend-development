@@ -1,0 +1,80 @@
+
+ 
+  .Auth-form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .Auth-form {
+    width: 420px;
+    height: 449px;
+    box-shadow: rgb(0 0 0 / 25%) 1px 1px 10px;
+    margin-top: 75px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    border-radius: 8px;
+    background-color: white;
+  }
+
+  .Auth-lupaPassword {
+    width: 500px;
+    height: 260px;
+    box-shadow: rgb(0 0 0 / 25%) 1px 1px 10px;
+    margin-top: 75px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    border-radius: 8px;
+    background-color: white;
+  }
+  
+  .Auth-form-content {
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+
+  .Auth-form-title {
+    text-align: center;
+    margin-bottom: 1em;
+    font-size: 24px;
+    color: rgb(34, 34, 34);
+    font-weight: 800;
+  }
+
+  .form {
+    width: 800px;
+    /* height: 350px; */
+    box-shadow: rgb(0 0 0 / 16%) 1px 1px 10px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    border-radius: 8px;
+    background-color: white;
+  }
+  
+  .veri {
+    text-align: center;
+    justify-content: center;
+  }
+  
+  p.strikearound {
+    margin-top: 18px;
+    font-family: Verdana;
+    color: gray;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    text-align: center;
+}
+p.strikearound:before, p.strikearound:after {
+    position: absolute;
+    top: 51%;
+    overflow: hidden;
+    width: 50%;
+    height: 1px;
+    content: '\a0';
+    background-color: grey;
+}
+p.strikearound:before {
+  margin-left: -50%;
+  text-align: right;
+}

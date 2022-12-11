@@ -1,0 +1,38 @@
+
+.container-fluid {
+    background-image: url(/src/img/work.png);
+    blur: 20%;  
+    background-size: cover;
+    height: 350px;
+    text-align: center;
+  }
+  .search {
+    margin-top: 70px;
+  }
+  .footer {
+    margin-top:50px;
+    
+  }
+  .row1 {
+    margin-top:12px;
+    
+  }
+  .row2 {
+    text-align: center;
+  }
+
+  .kol1, .kol2 {
+    border-right: 1px solid white;
+  }
+
+  .kol1 p {
+    /* color: gray; */
+    opacity: 70%;
+  }
+
+  .kol2 p {
+    /* color: gray; */
+    opacity: 70%;
+  }
+  
+  

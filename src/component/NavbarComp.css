@@ -1,0 +1,19 @@
+.user {
+    margin-right: 30px;
+    color: black;
+    text-decoration:none;
+}
+
+.notif {
+    margin-right:2px;
+}
+
+.imgnotif {
+    width: 20px;
+    height: 20px;
+}
+.Dropdown-menu {
+    height: 20px; 
+    overflow-y: scroll;
+ }
+

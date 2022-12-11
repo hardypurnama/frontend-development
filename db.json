@@ -1,0 +1,24 @@
+{
+  "posts": [
+    {
+      "id": 1669261561445,
+      "title": "BANG",
+      "body": "BANG"
+    },
+    {
+      "id": 1669262491383,
+      "title": "Security ",
+      "body": "Jakarta"
+    },
+    {
+      "id": 1669705377334,
+      "title": "aaaa",
+      "body": "aaaa",
+      "userid": 1
+    }
+  ],
+  "comments": [],
+  "profile": {
+    "name": "typicode"
+  }
+}
