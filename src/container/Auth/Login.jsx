@@ -27,13 +27,15 @@ function Login() {
   const handleSubmit = (event) => {
     // prevents the submit button from refreshing the page
     event.preventDefault();
-    axios.post("http://localhost:3000/users/login", FormLogin).then(
+    axios.post("https://backend-recruitment-production.up.railway.app/users/login", FormLogin).then(
       (res) => {
         if (res.data.token) {
           handleLogin(res.data.token);
         }
       },
       (err) => {
+        alert('Username atau Password Salah'
+      );
         console.log("error: ".err);
       }
     );
@@ -77,7 +79,7 @@ function Login() {
                 <GoogleLogin
                   onSuccess={async (token) => {
                     const userInfo = await axios
-                      .post("http://http://localhost:3000/users/google", {
+                      .post("http://https://backend-recruitment-production.up.railway.app/users/google", {
                         credential: token.credential,
                         clientId: token.clientId,
                       })

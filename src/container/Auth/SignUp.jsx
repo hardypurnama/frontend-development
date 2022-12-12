@@ -34,14 +34,14 @@ const SignUp = (props) => {
   };
 
   const putDataToAPIUser = () => {
-    axios.put(`http://localhost:3000/Users/${user.id}`, user).then((res) => {
+    axios.put(`https://backend-recruitment-production.up.railway.app/Users/${user.id}`, user).then((res) => {
       handleResetSignUp();
     });
   };
 
   const postDataToAPIUser = () => {
     user.url = window.location.origin + "/verifikasi/";
-    axios.post("http://localhost:3000/users/register", user).then(
+    axios.post("https://backend-recruitment-production.up.railway.app/users/register", user).then(
       (res) => {
         handleResetSignUp();
 

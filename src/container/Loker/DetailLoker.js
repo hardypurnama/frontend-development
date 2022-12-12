@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Container, Card, Button } from "react-bootstrap";
 import axios from "axios";
+import "./DetailLoker.css";
+import NavbarComp from "../../component/NavbarComp";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { getUser, authHeader } from "../../Utils/Authentication";
@@ -14,7 +16,7 @@ function DetailLoker() {
   useEffect(() => {
     const getPostAPI = () => {
       axios
-        .get("http://localhost:3000/products/" + id)
+        .get("https://backend-recruitment-production.up.railway.app/products/" + id)
 
         .then((result) => {
           setDetail(result.data);
@@ -36,7 +38,9 @@ function DetailLoker() {
       };
 
       axios
-        .post("http://localhost:3000/kandidats", loker, { headers: authHeader() })
+        .post("https://backend-recruitment-production.up.railway.app/kandidats", loker, {
+          headers: authHeader(),
+        })
         .then(
           (res) => {
             Navigate("/Users/UserApply");
@@ -52,20 +56,29 @@ function DetailLoker() {
   };
 
   return (
-    <Container>
-      {Detail && (
-        <Card>
-          <Card.Header as="h5">{Detail.nama_perusahaan}</Card.Header>
-          <Card.Body>
-            <Card.Title>{Detail.posisi}</Card.Title>
-            <Card.Text>{Detail.description}</Card.Text>
-            <Button variant="primary" onClick={handleApply}>
-              Apply
-            </Button>
-          </Card.Body>
-        </Card>
-      )}
-    </Container>
+    <Container-fluid>
+      <div>
+        <NavbarComp />
+      </div>
+      <div>
+        <Container>
+          {Detail && (
+            <Card className="detailLok">
+              <Card.Header as="h5">Perusahaan : {Detail.nama_perusahaan}</Card.Header>
+              <Card.Body>
+                {/* <Card.Img variant="top" src={props.data.poster} /> */}
+                <Card.Title>Posisi : {Detail.posisi}</Card.Title>
+                <Card.Title as="h6">Deskripsi Pekerjaan : </Card.Title>
+                <Card.Text>{Detail.description}</Card.Text>
+                <Button variant="primary" onClick={handleApply}>
+                  Apply
+                </Button>
+              </Card.Body>
+            </Card>
+          )}
+        </Container>
+      </div>
+    </Container-fluid>
   );
 }
 

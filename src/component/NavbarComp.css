@@ -17,3 +17,8 @@
     overflow-y: scroll;
  }
 
+.dropdownIcon {
+    width: 70px;
+    bottom: 6px;
+}
+

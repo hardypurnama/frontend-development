@@ -1,6 +1,10 @@
 .dftLowongan {
   text-align: center;
   font-family: arial;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  margin-left: 8px;
+  margin-right: 8px;
 }
 .Card {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
@@ -10,14 +14,19 @@
     font-family: arial;
   }
 
+.bodyLow {
+  border-top: 1px solid gray;
+}
+
+
 .min {
-    border: none;
-    outline: 0;
-    padding: 12px;
-    color: white;
-    background-color: #000;
-    text-align: center;
-    cursor: pointer;
-    width: 100%;
-    font-size: 18px;
+  color: white;
+  padding: 14px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.min:active, .min:hover {
+  color: white;
 }

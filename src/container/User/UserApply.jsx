@@ -11,7 +11,7 @@ const UserApply = (props) => {
     const getPostAPI = () => {
       const curUser = getUser();
       axios
-        .get("http://localhost:3000/kandidats/byuser/" + curUser.id, {
+        .get("https://backend-recruitment-production.up.railway.app/kandidats/byuser/" + curUser.id, {
           headers: authHeader(),
         })
         .then((result) => {

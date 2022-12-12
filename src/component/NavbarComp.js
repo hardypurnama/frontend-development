@@ -22,7 +22,6 @@ function NavbarComp() {
   function keluar() {
     localStorage.removeItem("user");
     localStorage.removeItem("token");
-    Navigate("/Login");
   }
   function signup() {
     Navigate("/SignUp");
@@ -37,7 +36,7 @@ function NavbarComp() {
     const curUser = getUser();
     if (curUser) {
       axios
-        .get("http://localhost:3000/notifikasi/byuser/" + curUser.id, {
+        .get("https://backend-recruitment-production.up.railway.app/notifikasi/byuser/" + curUser.id, {
           headers: authHeader(),
         })
         .then((result) => {
@@ -59,7 +58,7 @@ function NavbarComp() {
   const handleRead = (data) => {
     data.status_notif = true;
     axios
-      .put(`http://localhost:3000/notifikasi/${data.id}`, data, {
+      .put(`https://backend-recruitment-production.up.railway.app/notifikasi/${data.id}`, data, {
         headers: authHeader(),
       })
       .then((res) => {
@@ -70,8 +69,8 @@ function NavbarComp() {
   return (
     <Navbar bg="light" variant="light">
       <Container>
-        <Navbar.Brand href="#">
-          <img src={logo} to="/" />
+        <Navbar.Brand href="/">
+          <img src={logo} />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
@@ -89,40 +88,39 @@ function NavbarComp() {
             {user && token && (
               <>
                 {!isUser() && (
-                  <Nav.Link href="#action1">
+                  <Nav.Link>
                     <Link className="user" to="/Monitoring/AddLoker">
-                      Input Loker
+                      Dashboard
                     </Link>
-                    <Link className="user" onClick={keluar}>
+                    <Link className="user" onClick={keluar} to="/">
                       Logout
                     </Link>
                   </Nav.Link>
                 )}
                 {isUser() && (
-                  <Nav.Link href="#action1">
-                    <Dropdown as={NavItem}>
-                      <Dropdown.Toggle style={{ width: "5px" }} as={NavLink}>
-                        <img class="imgnotif" src={bell} />
+                    <Nav.Link className="d-flex">
+                      <Dropdown className="dropdownIcon" as={NavItem}>
+                        <Dropdown.Toggle style={{ width: "2px" }} as={NavLink}>
+                          <img class="imgnotif" src={bell} />
+                          {count}
+                        </Dropdown.Toggle>
+                        <Dropdown.Menu>
+                          {pesan.length > 0 &&
+                            pesan.map((Post, i) => (
+                              <Dropdown.Item onClick={handleRead(Post)}>
+                                {Post.deskripsi}
+                              </Dropdown.Item>
+                            ))}
+                        </Dropdown.Menu>
+                      </Dropdown>
 
-                        {count}
-                      </Dropdown.Toggle>
-                      <Dropdown.Menu>
-                        {pesan.length > 0 &&
-                          pesan.map((Post, i) => (
-                            <Dropdown.Item onClick={handleRead(Post)}>
-                              {Post.deskripsi}
-                            </Dropdown.Item>
-                          ))}
-                      </Dropdown.Menu>
-                    </Dropdown>
-
-                    <Link className="user" to="/Users/UserProfile">
-                      Profile
-                    </Link>
-                    <Link className="user" onClick={keluar}>
-                      Logout
-                    </Link>
-                  </Nav.Link>
+                      <Link className="user" to="/Users/UserProfile">
+                        Profile
+                      </Link>
+                      <Link className="user" onClick={keluar} to="/">
+                        Logout
+                      </Link>
+                    </Nav.Link>
                 )}
               </>
             )}

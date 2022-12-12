@@ -40,7 +40,7 @@ const Footer = () => {
               <Row>
                 <Col>
                   <div>
-                    <h5 className="mb-1">Copyright 2022 <img src={logo} width="80" height="85" /></h5>
+                    <h5 className="mb-1">Copyright <img src={logo} width="80" height="85" /> 2022.</h5>
                   </div>
                 </Col>
               </Row>

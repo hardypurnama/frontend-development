@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { Form, Button } from "react-bootstrap";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import { getUser, authHeader } from "../../Utils/Authentication";
 
 const UpdateStatusUser = (props) => {
+  const Navigate = useNavigate();
   const [kandidat, setKandidat] = useState({
     id_lowongan: " ",
     id_user: " ",
@@ -15,7 +17,7 @@ const UpdateStatusUser = (props) => {
     console.log(props.idKandidat);
     const getPostAPI = () => {
       axios
-        .get("http://localhost:3000/kandidats/" + props.idKandidat, {
+        .get("https://backend-recruitment-production.up.railway.app/kandidats/" + props.idKandidat, {
           headers: authHeader(),
         })
         .then((result) => {
@@ -33,10 +35,12 @@ const UpdateStatusUser = (props) => {
 
   const putDataToAPI = (e) => {
     axios
-      .put(`http://localhost:3000/kandidats/` + props.idKandidat, kandidat, {
+      .put(`https://backend-recruitment-production.up.railway.app/kandidats/` + props.idKandidat, kandidat, {
         headers: authHeader(),
       })
-      .then((res) => {});
+      .then((res) => {
+        Navigate("/Monitoring/MonitoringUser");
+      });
   };
 
   const handleChange = (event) => {

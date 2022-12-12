@@ -12,7 +12,7 @@ const Loker = () => {
   const [lokerDef, setLokerDef] = useState([]);
   useEffect(() => {
     const getPostAPI = () => {
-      axios.get("http://localhost:3000/products/").then((result) => {
+      axios.get("https://backend-recruitment-production.up.railway.app/products/").then((result) => {
         setLoker(result.data);
         setLokerDef(result.data);
         console.log(result);

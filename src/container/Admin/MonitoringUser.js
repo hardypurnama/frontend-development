@@ -16,7 +16,7 @@ const MonitoringUser = (props) => {
     const getPostAPI = () => {
       const curUser = getUser();
       axios
-        .get("http://localhost:3000/kandidats", { headers: authHeader() })
+        .get("https://backend-recruitment-production.up.railway.app/kandidats", { headers: authHeader() })
         .then((result) => {
           setKandidat(result.data);
           console.log(kandidat);
@@ -33,7 +33,7 @@ const MonitoringUser = (props) => {
   // }
   const putDataToAPI = () => {
     axios
-      .put(`http://localhost:3000/kandidat/`, { headers: authHeader() })
+      .put(`https://backend-recruitment-production.up.railway.app/kandidat/`, { headers: authHeader() })
       .then((res) => {});
   };
 

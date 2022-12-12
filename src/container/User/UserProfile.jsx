@@ -11,7 +11,7 @@ const UserProfile = (props) => {
     const curUser = getUser();
     console.log(curUser);
     axios
-      .get("http://localhost:3000/users/" + curUser.id, {
+      .get("https://backend-recruitment-production.up.railway.app/users/" + curUser.id, {
         headers: authHeader(),
       })
 

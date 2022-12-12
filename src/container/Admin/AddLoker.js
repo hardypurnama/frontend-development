@@ -29,7 +29,7 @@ const AddLoker = (props) => {
   useEffect(() => {
     const getPostAPI = () => {
       axios
-        .get("http://localhost:3000/products/" + props.idLoker)
+        .get("https://backend-recruitment-production.up.railway.app/products/" + props.idLoker)
 
         .then((result) => {
           setLoker(result.data);
@@ -43,7 +43,7 @@ const AddLoker = (props) => {
 
   const postDataToAPI = () => {
     axios
-      .post("http://localhost:3000/products", loker, { headers: authHeader() })
+      .post("https://backend-recruitment-production.up.railway.app/products", loker, { headers: authHeader() })
       .then(
         (res) => {
           handleReset();
@@ -57,7 +57,7 @@ const AddLoker = (props) => {
 
   const putDataToAPI = () => {
     axios
-      .put(`http://localhost:3000/products/${loker.id}`, loker, {
+      .put(`https://backend-recruitment-production.up.railway.app/products/${loker.id}`, loker, {
         headers: authHeader(),
       })
       .then((res) => {
@@ -86,7 +86,7 @@ const AddLoker = (props) => {
     const image = e.target.files[0];
     formData.append("image", image);
     axios
-      .post("http://localhost:3000/products/uploads", formData, {
+      .post("https://backend-recruitment-production.up.railway.app/products/uploads", formData, {
         headers: { ...authHeader(), "Content-Type": "multipart/form-data" },
       })
       .then(
