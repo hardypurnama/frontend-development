@@ -24,7 +24,7 @@ const SubmitLoker = (props) => {
             <Card.Title className="title">{props.data.posisi}</Card.Title>
             <Card.Text className="desc">{props.data.lokasi}</Card.Text>
             <Button variant="dark">
-            <Link className="min" to={"/DetailLoker/" + props.data.id}>Lihat Detail Lowongan</Link>
+            <Link className="min" to={"/DetailLoker/" + props.data.id}>Lihat Detail Lowongan.</Link>
             </Button>
           </Card.Body>
         </Card>
